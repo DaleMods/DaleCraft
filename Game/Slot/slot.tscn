@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvwhdnkijhaty"]
+
+[ext_resource type="Texture2D" uid="uid://cdykmtq0i4pw6" path="res://Game/Slot/Slot_bg.tres" id="1_46m4p"]
+[ext_resource type="Script" path="res://Game/Slot/slot.gd" id="2_oca00"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dfjog"]
+font_size = 24
+
+[node name="Slot0" type="TextureRect"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_46m4p")
+script = ExtResource("2_oca00")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+flat = true
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 72.0
+offset_bottom = 71.0
+mouse_filter = 2
+
+[node name="Quantity" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 41.0
+offset_right = -3.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_dfjog")
+horizontal_alignment = 2
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

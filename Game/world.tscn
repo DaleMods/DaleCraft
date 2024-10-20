@@ -1,0 +1,115 @@
+[gd_scene load_steps=16 format=3 uid="uid://cpviorsuws562"]
+
+[ext_resource type="Script" path="res://Game/world.gd" id="1_q7wax"]
+[ext_resource type="PackedScene" uid="uid://d0ccyiye7cmrm" path="res://UI/DebugOverlay/debug_overlay.tscn" id="1_r8awu"]
+[ext_resource type="Script" path="res://Game/Sky/day_night_cycle.gd" id="3_c0x25"]
+[ext_resource type="PackedScene" uid="uid://b0u2qq34b7pdu" path="res://Game/Sky/clouds.tscn" id="4_amqnc"]
+
+[sub_resource type="Gradient" id="Gradient_fuh5w"]
+offsets = PackedFloat32Array(0.1, 0.4, 0.6, 0.9)
+colors = PackedColorArray(0, 0, 0, 1, 0.596078, 0.839216, 0.937255, 1, 0.596078, 0.839216, 0.937255, 1, 0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_rp1gh"]
+offsets = PackedFloat32Array(0.1, 0.3, 0.4, 0.6, 0.7, 0.9)
+colors = PackedColorArray(0, 0, 0, 1, 0.921875, 0.562668, 0.283285, 1, 0.596078, 0.839216, 0.937255, 1, 0.596078, 0.839216, 0.937255, 1, 0.921569, 0.560784, 0.282353, 1, 0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_ex4nt"]
+offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
+colors = PackedColorArray(1, 0.623529, 0, 1, 0.991602, 0.926793, 0.7101, 1, 0.992157, 0.92549, 0.709804, 1, 1, 0.623529, 0, 1)
+
+[sub_resource type="Curve" id="Curve_746sv"]
+_data = [Vector2(0.172363, 0), 0.0, 0.0, 0, 0, Vector2(0.254086, 1), 0.0, 0.0, 0, 0, Vector2(0.7474, 1), 0.0, 0.0, 0, 0, Vector2(0.830609, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_woehq"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.763809, 0.763809, 0.763808, 1)
+
+[sub_resource type="Curve" id="Curve_j2655"]
+_data = [Vector2(0, 0.0471909), 0.0, 0.0, 0, 0, Vector2(0.251114, 0), 0.0, 0.0, 0, 0, Vector2(0.748886, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.0539325), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d4gcl"]
+sky_top_color = Color(0.109804, 0.494118, 0.803922, 1)
+sky_horizon_color = Color(0.597202, 0.840147, 0.937355, 1)
+ground_bottom_color = Color(0.109804, 0.494118, 0.803922, 1)
+ground_horizon_color = Color(0.596078, 0.839216, 0.937255, 1)
+
+[sub_resource type="Sky" id="Sky_yx5al"]
+sky_material = SubResource("ProceduralSkyMaterial_d4gcl")
+
+[sub_resource type="Environment" id="Environment_03ehl"]
+background_mode = 2
+sky = SubResource("Sky_yx5al")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ewjul"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2jfp7"]
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_q7wax")
+
+[node name="DebugPanel" parent="." instance=ExtResource("1_r8awu")]
+visible = false
+
+[node name="DayNightCycle" type="Node3D" parent="."]
+script = ExtResource("3_c0x25")
+sky_top_colour = SubResource("Gradient_fuh5w")
+sky_horizon_colour = SubResource("Gradient_rp1gh")
+sun_colour = SubResource("Gradient_ex4nt")
+sun_intensity = SubResource("Curve_746sv")
+moon_colour = SubResource("Gradient_woehq")
+moon_intensity = SubResource("Curve_j2655")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="DayNightCycle"]
+environment = SubResource("Environment_03ehl")
+
+[node name="Sun" type="DirectionalLight3D" parent="DayNightCycle"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 100, 0)
+shadow_enabled = true
+
+[node name="Moon" type="DirectionalLight3D" parent="DayNightCycle"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 100, 0)
+visible = false
+shadow_enabled = true
+
+[node name="Clouds" parent="." instance=ExtResource("4_amqnc")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="OriginBlock" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 64, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="OriginBlock"]
+mesh = SubResource("BoxMesh_ewjul")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OriginBlock"]
+shape = SubResource("BoxShape3D_2jfp7")
+
+[node name="LoadingConsole" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="LoadingConsole"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LoadingConsole/MarginContainer"]
+layout_mode = 2
+scroll_following = true

@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://p5a46lnoxwq8"]
+
+[ext_resource type="Texture2D" uid="uid://d2o41u8s1w4n8" path="res://Game/BlockTextures/torch.png" id="1_1okcs"]
+[ext_resource type="Script" path="res://Game/Torch/torch.gd" id="1_3i24y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxrko"]
+albedo_texture = ExtResource("1_1okcs")
+uv1_scale = Vector3(2, 2, 2)
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_o8und"]
+material = SubResource("StandardMaterial3D_vxrko")
+size = Vector3(0.125, 0.75, 0.125)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e87nq"]
+size = Vector3(0.01, 0.01, 0.01)
+
+[node name="Torch" type="StaticBody3D"]
+script = ExtResource("1_3i24y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
+mesh = SubResource("BoxMesh_o8und")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_e87nq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)

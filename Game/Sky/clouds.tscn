@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0u2qq34b7pdu"]
+
+[ext_resource type="Script" path="res://Game/Sky/clouds.gd" id="1_icvo3"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tchl7"]
+noise_type = 0
+
+[node name="Clouds" type="Node3D"]
+script = ExtResource("1_icvo3")
+noise = SubResource("FastNoiseLite_tchl7")

@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://clveqi6g4jnw1"]
+
+[ext_resource type="Script" path="res://Game/Player/player.gd" id="1_caf0v"]
+[ext_resource type="Texture2D" uid="uid://dmoaiy8c0h7kn" path="res://Game/Player/crosshair.png" id="2_gbwa4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gpsvq"]
+radius = 0.45
+height = 1.95
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_llyp8"]
+radius = 0.45
+height = 1.95
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_moi6y"]
+transparency = 1
+albedo_color = Color(0.807843, 0.788235, 0, 0.215686)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2kinu"]
+material = SubResource("StandardMaterial3D_moi6y")
+size = Vector3(1.05, 1.05, 1.05)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_caf0v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_gpsvq")
+
+[node name="PlayerMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_llyp8")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -5)
+
+[node name="BlockHighlight" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_2kinu")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gbwa4")

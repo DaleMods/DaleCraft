@@ -1,0 +1,127 @@
+[gd_scene load_steps=13 format=3 uid="uid://bw5dq4nnelx20"]
+
+[ext_resource type="Script" path="res://Game/ChunkManager/chunk_manager.gd" id="1_a6ib8"]
+[ext_resource type="Script" path="res://Game/Block/block.gd" id="2_nus8s"]
+
+[sub_resource type="Resource" id="Resource_pmncc"]
+script = ExtResource("2_nus8s")
+type = "air"
+mine_type = "air"
+top_index = 0
+bottom_index = 0
+left_index = 0
+right_index = 0
+front_index = 0
+back_index = 0
+
+[sub_resource type="Resource" id="Resource_c0yaa"]
+script = ExtResource("2_nus8s")
+type = "stone"
+mine_type = "stone"
+top_index = 0
+bottom_index = 0
+left_index = 0
+right_index = 0
+front_index = 0
+back_index = 0
+
+[sub_resource type="Resource" id="Resource_dbudy"]
+script = ExtResource("2_nus8s")
+type = "dirt"
+mine_type = "dirt"
+top_index = 1
+bottom_index = 1
+left_index = 1
+right_index = 1
+front_index = 1
+back_index = 1
+
+[sub_resource type="Resource" id="Resource_q3r5l"]
+script = ExtResource("2_nus8s")
+type = "grass"
+mine_type = "grass"
+top_index = 2
+bottom_index = 1
+left_index = 3
+right_index = 3
+front_index = 3
+back_index = 3
+
+[sub_resource type="Resource" id="Resource_x30hc"]
+script = ExtResource("2_nus8s")
+type = "water"
+mine_type = "air"
+top_index = 4
+bottom_index = 4
+left_index = 4
+right_index = 4
+front_index = 4
+back_index = 4
+
+[sub_resource type="Resource" id="Resource_js6ia"]
+script = ExtResource("2_nus8s")
+type = "sand"
+mine_type = "sand"
+top_index = 5
+bottom_index = 5
+left_index = 5
+right_index = 5
+front_index = 5
+back_index = 5
+
+[sub_resource type="Resource" id="Resource_q1h7p"]
+script = ExtResource("2_nus8s")
+type = "oak_log"
+mine_type = "oak_log"
+top_index = 7
+bottom_index = 7
+left_index = 6
+right_index = 6
+front_index = 6
+back_index = 6
+
+[sub_resource type="Resource" id="Resource_1hsw1"]
+script = ExtResource("2_nus8s")
+type = "oak_leaves"
+mine_type = "oak_leaves"
+top_index = 8
+bottom_index = 8
+left_index = 8
+right_index = 8
+front_index = 8
+back_index = 8
+
+[sub_resource type="Resource" id="Resource_lk6ku"]
+script = ExtResource("2_nus8s")
+type = "oak_planks"
+mine_type = "oak_planks"
+top_index = 9
+bottom_index = 9
+left_index = 9
+right_index = 9
+front_index = 9
+back_index = 9
+
+[sub_resource type="Resource" id="Resource_7jtan"]
+script = ExtResource("2_nus8s")
+type = "torch"
+mine_type = "torch"
+top_index = 10
+bottom_index = 10
+left_index = 10
+right_index = 10
+front_index = 10
+back_index = 10
+
+[node name="ChunkManager" type="Node"]
+script = ExtResource("1_a6ib8")
+air = SubResource("Resource_pmncc")
+stone = SubResource("Resource_c0yaa")
+dirt = SubResource("Resource_dbudy")
+grass = SubResource("Resource_q3r5l")
+water = SubResource("Resource_x30hc")
+sand = SubResource("Resource_js6ia")
+oak_log = SubResource("Resource_q1h7p")
+oak_leaves = SubResource("Resource_1hsw1")
+oak_planks = SubResource("Resource_lk6ku")
+torch = SubResource("Resource_7jtan")

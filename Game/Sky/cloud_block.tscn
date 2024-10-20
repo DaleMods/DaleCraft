@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnu0sust41uxb"]
+
+[ext_resource type="Script" path="res://Game/Sky/cloud_block.gd" id="1_8eyli"]
+[ext_resource type="Texture2D" uid="uid://ctpkcpmh8iejw" path="res://Game/BlockTextures/white_wool.png" id="2_m1dmg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oiilc"]
+size = Vector3(10, 1, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67muo"]
+albedo_texture = ExtResource("2_m1dmg")
+
+[sub_resource type="BoxMesh" id="BoxMesh_q7qg8"]
+material = SubResource("StandardMaterial3D_67muo")
+size = Vector3(10.2, 1.2, 10.2)
+
+[node name="CloudBlock" type="StaticBody3D"]
+script = ExtResource("1_8eyli")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_oiilc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_q7qg8")

@@ -1,0 +1,108 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0ccyiye7cmrm"]
+
+[ext_resource type="Script" path="res://UI/DebugOverlay/debug_overlay.gd" id="1_74yax"]
+
+[node name="DebugPanel" type="MarginContainer"]
+z_index = 100
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -204.0
+offset_bottom = 53.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_74yax")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Line1" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FPSLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Line1"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "FPS:"
+
+[node name="FPSCount" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Line1"]
+layout_mode = 2
+text = "0"
+
+[node name="Line2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MemLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Line2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Memory:"
+
+[node name="MemMin" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Line2"]
+layout_mode = 2
+text = "0"
+
+[node name="MemSlash" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Line2"]
+layout_mode = 2
+text = "/"
+
+[node name="MemMax" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Line2"]
+layout_mode = 2
+text = "0"
+
+[node name="MemMib" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Line2"]
+layout_mode = 2
+text = "MiB"
+
+[node name="Line3" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VidLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Line3"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Video Memory:"
+
+[node name="VidMem" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Line3"]
+layout_mode = 2
+text = "0"
+
+[node name="VidMib" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Line3"]
+layout_mode = 2
+text = "MiB"
+
+[node name="Line4" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NodesLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Line4"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Nodes:"
+
+[node name="NodesCount" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Line4"]
+layout_mode = 2
+text = "0"
+
+[node name="Line5" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="OrphansLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Line5"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Orphan Nodes:"
+
+[node name="OrphansCount" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Line5"]
+layout_mode = 2
+text = "0"

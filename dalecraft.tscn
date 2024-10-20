@@ -1,0 +1,170 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpkns1rofgos6"]
+
+[ext_resource type="Script" path="res://dalecraft.gd" id="1_v2ouc"]
+[ext_resource type="Texture2D" uid="uid://5w844j267im6" path="res://main_title.png" id="2_5coub"]
+[ext_resource type="AudioStream" uid="uid://nr1pb256w68f" path="res://Game/Music/CraftingDreams.mp3" id="3_xxfpq"]
+
+[node name="DaleCraft" type="Node"]
+script = ExtResource("1_v2ouc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5coub")
+stretch_mode = 6
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -50.0
+offset_right = 110.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="New" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "New Game"
+
+[node name="Load" type="Button" parent="UI/VBoxContainer"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Load Game"
+
+[node name="Exit" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Exit"
+
+[node name="LoadingScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="LoadingScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -24.5
+offset_right = 45.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Loading...
+Please Wait"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xxfpq")
+volume_db = -10.0
+autoplay = true
+
+[node name="Instructions" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -118.0
+offset_right = 20.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="Instructions"]
+custom_minimum_size = Vector2(700, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -50.0
+offset_right = 350.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Instructions/Panel"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 0
+offset_top = 10.0
+offset_right = 700.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0, 1, 0.00140238, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Instructions"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Instructions/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -330.5
+offset_top = -25.0
+offset_right = 330.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Instructions/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "WASD - Move around
+SPACE - Jump
+I - Open/close inventory"
+
+[node name="Label2" type="Label" parent="Instructions/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "LMB - Mine block
+RMB - Place block from hand
+ESCAPE - In game menu"
+
+[node name="Label3" type="Label" parent="Instructions/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "F1 - Performance stats overlay
+Z - Fly mode
+QE - Fly up or down"
+
+[connection signal="pressed" from="UI/VBoxContainer/New" to="." method="_on_new_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

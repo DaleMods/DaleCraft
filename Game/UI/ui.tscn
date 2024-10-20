@@ -1,0 +1,301 @@
+[gd_scene load_steps=28 format=3 uid="uid://cn2ujbnwlrqas"]
+
+[ext_resource type="Texture2D" uid="uid://bmn5suwt5xvl3" path="res://Game/Slot/ui_icons.png" id="1_18rl0"]
+[ext_resource type="Script" path="res://Game/UI/ui.gd" id="1_iy42n"]
+[ext_resource type="PackedScene" uid="uid://cvwhdnkijhaty" path="res://Game/Slot/slot.tscn" id="3_53761"]
+[ext_resource type="Texture2D" uid="uid://cfl4uxnk78rp8" path="res://Game/BlockTextures/grass.png" id="4_r8rhf"]
+[ext_resource type="Texture2D" uid="uid://drm7wriy3wwdh" path="res://Game/BlockTextures/dirt.png" id="5_ouu2x"]
+[ext_resource type="Texture2D" uid="uid://cynvgli88fb0r" path="res://Game/BlockTextures/stone.png" id="6_y6pv1"]
+[ext_resource type="Texture2D" uid="uid://qqlh5rod5lyu" path="res://Game/BlockTextures/sand.png" id="7_jeu1w"]
+[ext_resource type="Texture2D" uid="uid://coccah2rtpsgr" path="res://Game/BlockTextures/oak_log.png" id="8_3ynkg"]
+[ext_resource type="Texture2D" uid="uid://bwl0yowkyx7ii" path="res://Game/BlockTextures/oak_leaves.png" id="9_4ouni"]
+[ext_resource type="Texture2D" uid="uid://blys6wyipgdk4" path="res://Game/BlockTextures/oak_planks.png" id="10_pws6k"]
+[ext_resource type="Texture2D" uid="uid://dqmumb4rg8mve" path="res://Game/Slot/craft_arrow.png" id="11_4w73r"]
+[ext_resource type="Texture2D" uid="uid://btvfxvve82t70" path="res://Game/BlockTextures/torch_inventory.png" id="11_7tom3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgr2w"]
+atlas = ExtResource("1_18rl0")
+region = Rect2(340, 20, 37, 36)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vf3x6"]
+texture = SubResource("AtlasTexture_tgr2w")
+texture_margin_left = 15.4049
+texture_margin_top = 15.1346
+texture_margin_right = 16.2157
+texture_margin_bottom = 15.1346
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3krn"]
+resource_local_to_scene = true
+atlas = ExtResource("1_18rl0")
+region = Rect2(105, 88, 72, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj34p"]
+resource_local_to_scene = true
+atlas = ExtResource("1_18rl0")
+region = Rect2(105, 88, 72, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odj5j"]
+resource_local_to_scene = true
+atlas = ExtResource("1_18rl0")
+region = Rect2(105, 88, 72, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyigu"]
+resource_local_to_scene = true
+atlas = ExtResource("1_18rl0")
+region = Rect2(105, 88, 72, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymva3"]
+resource_local_to_scene = true
+atlas = ExtResource("1_18rl0")
+region = Rect2(105, 88, 72, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnqbh"]
+resource_local_to_scene = true
+atlas = ExtResource("1_18rl0")
+region = Rect2(105, 88, 72, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1p1s"]
+resource_local_to_scene = true
+atlas = ExtResource("1_18rl0")
+region = Rect2(105, 88, 72, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vd41q"]
+resource_local_to_scene = true
+atlas = ExtResource("1_18rl0")
+region = Rect2(105, 88, 72, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pvym"]
+resource_local_to_scene = true
+atlas = ExtResource("1_18rl0")
+region = Rect2(105, 88, 72, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_furys"]
+resource_local_to_scene = true
+atlas = ExtResource("1_18rl0")
+region = Rect2(105, 88, 72, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppo54"]
+resource_local_to_scene = true
+atlas = ExtResource("1_18rl0")
+region = Rect2(105, 88, 72, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jik1l"]
+resource_local_to_scene = true
+atlas = ExtResource("1_18rl0")
+region = Rect2(105, 88, 72, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iytti"]
+resource_local_to_scene = true
+atlas = ExtResource("1_18rl0")
+region = Rect2(105, 88, 72, 71)
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iy42n")
+
+[node name="Inventory" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -163.135
+offset_right = 381.621
+offset_bottom = 163.134
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vf3x6")
+
+[node name="GridContainer" type="GridContainer" parent="Inventory"]
+layout_mode = 2
+columns = 4
+
+[node name="Slot0" parent="Inventory/GridContainer" instance=ExtResource("3_53761")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_f3krn")
+item = "grass"
+item_texture = ExtResource("4_r8rhf")
+
+[node name="Slot1" parent="Inventory/GridContainer" instance=ExtResource("3_53761")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_qj34p")
+item = "dirt"
+item_texture = ExtResource("5_ouu2x")
+
+[node name="Slot2" parent="Inventory/GridContainer" instance=ExtResource("3_53761")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_odj5j")
+item = "stone"
+item_texture = ExtResource("6_y6pv1")
+
+[node name="Slot3" parent="Inventory/GridContainer" instance=ExtResource("3_53761")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_fyigu")
+item = "sand"
+item_texture = ExtResource("7_jeu1w")
+
+[node name="Slot4" parent="Inventory/GridContainer" instance=ExtResource("3_53761")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ymva3")
+item = "oak_log"
+item_texture = ExtResource("8_3ynkg")
+
+[node name="Slot5" parent="Inventory/GridContainer" instance=ExtResource("3_53761")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_mnqbh")
+item = "oak_leaves"
+item_texture = ExtResource("9_4ouni")
+
+[node name="Slot6" parent="Inventory/GridContainer" instance=ExtResource("3_53761")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_u1p1s")
+item = "oak_planks"
+item_texture = ExtResource("10_pws6k")
+
+[node name="Slot7" parent="Inventory/GridContainer" instance=ExtResource("3_53761")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_vd41q")
+stretch_mode = 2
+item = "torch"
+item_texture = ExtResource("11_7tom3")
+
+[node name="CraftTable" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -148.0
+offset_right = -49.9996
+offset_bottom = 148.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Items" type="VBoxContainer" parent="CraftTable"]
+layout_mode = 2
+
+[node name="Item1" type="HBoxContainer" parent="CraftTable/Items"]
+layout_mode = 2
+
+[node name="OakLogs" parent="CraftTable/Items/Item1" instance=ExtResource("3_53761")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_3pvym")
+item = "oak_log"
+item_texture = ExtResource("8_3ynkg")
+
+[node name="TextureRect" type="TextureRect" parent="CraftTable/Items/Item1"]
+layout_mode = 2
+texture = ExtResource("11_4w73r")
+
+[node name="OakPlanks" parent="CraftTable/Items/Item1" instance=ExtResource("3_53761")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_furys")
+item = "oak_planks"
+item_texture = ExtResource("10_pws6k")
+
+[node name="CraftOakPlanks" type="Button" parent="CraftTable/Items/Item1"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+text = "Click
+to
+Craft"
+
+[node name="Item2" type="HBoxContainer" parent="CraftTable/Items"]
+layout_mode = 2
+
+[node name="OakLogs" parent="CraftTable/Items/Item2" instance=ExtResource("3_53761")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ppo54")
+item = "oak_log"
+item_texture = ExtResource("8_3ynkg")
+
+[node name="TextureRect" type="TextureRect" parent="CraftTable/Items/Item2"]
+layout_mode = 2
+texture = ExtResource("11_4w73r")
+
+[node name="Torchs" parent="CraftTable/Items/Item2" instance=ExtResource("3_53761")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_jik1l")
+item = "torch"
+item_texture = ExtResource("11_7tom3")
+
+[node name="CraftTorch" type="Button" parent="CraftTable/Items/Item2"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+text = "Click
+to
+Craft"
+
+[node name="SelectedPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -150.0
+offset_right = 122.0
+offset_bottom = -50.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SelectedPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SelectedPanel/VBoxContainer"]
+layout_mode = 2
+text = "Selected:"
+horizontal_alignment = 1
+
+[node name="Hand" parent="SelectedPanel/VBoxContainer" instance=ExtResource("3_53761")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_iytti")
+item = "grass"
+item_texture = ExtResource("4_r8rhf")
+
+[node name="Menu" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Save" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Save"
+
+[node name="Exit" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="CraftTable/Items/Item1/CraftOakPlanks" to="." method="_on_craft_oak_planks_pressed"]
+[connection signal="pressed" from="CraftTable/Items/Item2/CraftTorch" to="." method="_on_craft_torch_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
