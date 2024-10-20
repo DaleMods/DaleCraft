@@ -33,6 +33,7 @@ func _on_load_pressed() -> void:
 
 func _new_game(loading):
 	$UI.hide()
+	$Instructions.hide()
 	$LoadingScreen.show()
 	await get_tree().create_timer(0.1).timeout
 	
